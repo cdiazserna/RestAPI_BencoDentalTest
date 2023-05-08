@@ -17,7 +17,9 @@ namespace JuniorTest
                     {
                         var content = response.Content.ReadAsStringAsync().Result;
                         var result = JsonSerializer.Deserialize<Result>(content);
-                        filtered.AddRange(result!.data!.Where(x => x.doctor!.name == doctorName && x.diagnosis!.id == diagnosisId).ToList());
+                        filtered
+                            .AddRange(result!.data!.Where(x => x.doctor!.name == doctorName && x.diagnosis!.id == diagnosisId)
+                            .ToList());
                     }
                 }
             }
